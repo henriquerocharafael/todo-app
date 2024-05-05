@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./styles.module.css"
+import { IconCheck } from "./iconCheck"
 
 export function Checkbox() {
   const [isChecked, setIsChecked] = useState(false);
@@ -10,18 +10,12 @@ export function Checkbox() {
 
   return (
     <label>
+      <IconCheck isChecked={isChecked} />
+
       <input
-        className={styles.checkbox}
         type="checkbox"
         onChange={handleChange}
       />
-      <span
-        className={`checkbox ${isChecked ? "checkbox-active" : ""}`}
-        // This element is purely decorative so
-        // we hide it for screen readers
-        aria-hidden="true"
-      />
-      Don't you dare to check me!
     </label>
   );
 }

@@ -3,9 +3,7 @@
 
   --white: #fff;
   --bright-blue: hsl(220, 98%, 61%);
-  --check-background: linear-gradient(
-    hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
-  );
+  --check-background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
 
   /* Neutral Colors */
   /* Light Theme */
@@ -67,6 +65,18 @@ header h1 {
 
   display: flex;
   align-items: center;
+}
+
+/* taken from https://css-tricks.com/inclusively-hidden/ */
+/* This will hide the native checkbox */
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .input-text {

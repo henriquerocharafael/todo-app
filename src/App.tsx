@@ -12,7 +12,6 @@ export function App() {
 
         <div className="input-wrapper">
 
-          {/* Custom Checkbox */}
           <Checkbox />
 
           <input className="input-text" placeholder="Create a new todo..." />

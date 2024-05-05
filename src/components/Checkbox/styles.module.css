@@ -1,24 +1,18 @@
-/* taken from https://css-tricks.com/inclusively-hidden/ */
-.checkbox {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+label:hover {
+  cursor: pointer;
 }
 
 .checkbox {
   display: inline-block; /* set to `inline-block` as `inline elements ignore `height` and `width` */
-  height: 20px;
-  width: 20px;
-  background: #fff;
-  border: 2px #ddd solid;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border: 2px solid var(--very-dark-grayish-blue);
+  border-radius: 50px;
   margin-right: 4px;
 }
 
-.checkbox-active {
-  border-color: purple;
-  background: purple;
+.checkbox_active {
+  border: none;
+  background: var(--check-background);
 }
