@@ -9,7 +9,6 @@ label:hover {
   background: transparent;
   border: 2px solid var(--very-dark-grayish-blue);
   border-radius: 50px;
-  margin-right: 4px;
 }
 
 .checkbox_active {
