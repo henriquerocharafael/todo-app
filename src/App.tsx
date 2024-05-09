@@ -1,7 +1,22 @@
-import iconSun from "./assets/images/icon-sun.svg"
-import { Checkbox } from "./components/Checkbox/index"
+import { ChangeEvent, useState } from "react";
+import iconCross from "./assets/images/icon-cross.svg";
+import iconSun from "./assets/images/icon-sun.svg";
+import { Checkbox } from "./components/Checkbox/index";
+import { ListStatus } from "./components/ListStatus";
 
 export function App() {
+  const [todoItem, setTodoItem] = useState("");
+  const [todoList, setTodoList] = useState<string[]>([]);
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setTodoItem(event.target.value);
+  }
+
+  function handleClick() {
+    setTodoList([...todoList, todoItem])
+    setTodoItem("")
+  }
+
   return (
     <div className="wrapper">
       <header>
@@ -11,40 +26,33 @@ export function App() {
         </div>
 
         <div className="input-wrapper">
-          <Checkbox />
-          <input className="input-text" placeholder="Create a new todo..." />
+          <button className="add-todo" onClick={handleClick}></button>
+          <input
+            className="input-text"
+            value={todoItem}
+            onChange={handleChange}
+            placeholder="Create a new todo..."
+          />
         </div>
       </header>
 
       <main>
         <ul>
-          <li><Checkbox />Jog around the park 3x</li>
-          <li><Checkbox />10 minutes meditation</li>
-          <li><Checkbox />Read for 1 hour</li>
-          <li><Checkbox />Pick up groceries</li>
-          <li><Checkbox />Complete Todo App on Frontend Mentor</li>
-
-          <div className="list-status">
-            <div className="items">
-              <span>5</span> items left
-            </div>
-            <div className="status">
-              <span>all</span>
-              <span>active</span>
-              <span>completed</span>
-            </div>
-            <div className="clear">
-              <span>
-                clear completed
-              </span>
-            </div>
-          </div>
+          {todoList.map((todo, idx) => {
+            return (
+              <li key={idx}>
+                <div>
+                  <Checkbox />
+                  {todo}
+                </div>
+                <img className="icon-cross" src={iconCross} />
+              </li>
+            );
+          })}
         </ul>
+        <ListStatus />
       </main>
-
-      <footer>
-        Drag and drop to reorder list
-      </footer>
+      <footer>Drag and drop to reorder list</footer>
     </div>
   );
 }

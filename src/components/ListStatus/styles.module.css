@@ -1,0 +1,32 @@
+.listStatus {
+  font-size: 0.9rem; 
+  color: var(--text-inactive);
+  padding: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.status {
+  font-weight: 700;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status span:hover {
+  cursor: pointer;
+  color: var(--text-active);
+}
+
+.clear span {
+  text-transform: capitalize;
+}
+
+.clear span:hover {
+  cursor: pointer;
+  color: var(--text-active);
+}

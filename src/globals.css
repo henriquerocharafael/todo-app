@@ -49,14 +49,14 @@ body {
   margin: 4.75rem auto auto;
 }
 
+header {
+  margin-top: 4.75rem;
+}
+
 .title-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-header {
-  margin-top: 4.75rem;
 }
 
 header h1 {
@@ -83,6 +83,19 @@ header img:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.add-todo {
+  display: inline-block; /* set to `inline-block` as `inline elements ignore `height` and `width` */
+  width: 1.6rem;
+  height: 1.6rem;
+  background: transparent;
+  border: 2px solid var(--very-dark-grayish-blue);
+  border-radius: 50px;
+}
+
+.add-todo:hover {
+  cursor: pointer;
+}
+
 /* taken from https://css-tricks.com/inclusively-hidden/ */
 /* This will hide the native checkbox */
 input[type="checkbox"] {
@@ -106,6 +119,10 @@ input[type="checkbox"] {
   background-color: var(--rows-color);
 }
 
+.input-text:focus {
+  color: var(--text-active);
+}
+
 main {
   border-radius: 5px;
   background-color: var(--rows-color);
@@ -124,44 +141,25 @@ ul li {
 
   display: flex;
   align-items: center;
-  gap: 1rem;
-}
-
-ul li:hover {
-  opacity: 0.5;
-}
-
-.list-status {
-  font-size: 0.9rem; 
-  color: var(--text-inactive);
-  padding: 1.5rem;
-
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
 }
 
-.status {
-  font-weight: 700;
-  text-transform: capitalize;
+ul li:hover .icon-cross {
+  display: block;
+}
+
+li div {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.3rem;
 }
 
-.status span:hover {
+.icon-cross {
+  display: none;
+}
+
+.icon-cross:hover {
   cursor: pointer;
-  color: var(--text-active);
-}
-
-.clear span {
-  text-transform: capitalize;
-}
-
-.clear span:hover {
-  cursor: pointer;
-  color: var(--text-active);
 }
 
 footer {
