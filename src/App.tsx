@@ -4,17 +4,37 @@ import iconSun from "./assets/images/icon-sun.svg";
 import { Checkbox } from "./components/Checkbox/index";
 import { ListStatus } from "./components/ListStatus";
 
+interface TodoListProps {
+  id: number;
+  description: string;
+  completed: boolean;
+}
+
 export function App() {
+  // Random number between 0 and 1000
+  const id = Math.floor(Math.random() * 1000) + 1;
+
   const [todoItem, setTodoItem] = useState("");
-  const [todoList, setTodoList] = useState<string[]>([]);
+  const [todoList, setTodoList] = useState<TodoListProps[]>([]);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setTodoItem(event.target.value);
   }
 
-  function handleClick() {
-    setTodoList([...todoList, todoItem])
-    setTodoItem("")
+  function addTodo() {
+    setTodoList([
+      ...todoList,
+      { id: id, description: todoItem, completed: false },
+    ]);
+    setTodoItem("");
+  }
+
+  function deleteTodo(item: number) {
+    const updatedTodoList = todoList.filter((todo) => {
+      return item !== todo.id;
+    });
+
+    setTodoList(updatedTodoList);
   }
 
   return (
@@ -26,7 +46,7 @@ export function App() {
         </div>
 
         <div className="input-wrapper">
-          <button className="add-todo" onClick={handleClick}></button>
+          <button className="add-todo" onClick={addTodo}></button>
           <input
             className="input-text"
             value={todoItem}
@@ -38,19 +58,23 @@ export function App() {
 
       <main>
         <ul>
-          {todoList.map((todo, idx) => {
+          {todoList.map((todo) => {
             return (
-              <li key={idx}>
+              <li key={todo.id}>
                 <div>
                   <Checkbox />
-                  {todo}
+                  {todo.description}
                 </div>
-                <img className="icon-cross" src={iconCross} />
+                <img
+                  className="icon-cross"
+                  src={iconCross}
+                  onClick={() => deleteTodo(todo.id)}
+                />
               </li>
             );
           })}
         </ul>
-        <ListStatus />
+        <ListStatus itemsLeft={todoList.length} />
       </main>
       <footer>Drag and drop to reorder list</footer>
     </div>

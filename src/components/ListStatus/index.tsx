@@ -1,10 +1,10 @@
 import styles from "./styles.module.css"
 
-export function ListStatus() {
+export function ListStatus(props: { itemsLeft: number }) {
   return (
     <div className={styles.listStatus}>
       <div className={styles.items}>
-        <span>5</span> items left
+        <span>{props.itemsLeft}</span> items left
       </div>
       <div className={styles.status}>
         <span>all</span>
