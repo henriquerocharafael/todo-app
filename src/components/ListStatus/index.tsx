@@ -1,10 +1,11 @@
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
+import { TodoListProps } from "../../App";
 
-export function ListStatus(props: { itemsLeft: number }) {
+  export function ListStatus(props: { todoList: TodoListProps[] }) {
   return (
     <div className={styles.listStatus}>
       <div className={styles.items}>
-        <span>{props.itemsLeft}</span> items left
+        <span>{props.todoList.length}</span> items left
       </div>
       <div className={styles.status}>
         <span>all</span>

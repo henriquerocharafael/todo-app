@@ -3,7 +3,8 @@
 
   --white: #fff;
   --bright-blue: hsl(220, 98%, 61%);
-  --check-background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+  --check-background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  --shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 
   /* Neutral Colors */
   /* Light Theme */
@@ -80,7 +81,7 @@ header img:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: var(--shadow);
 }
 
 .add-todo {
@@ -94,18 +95,6 @@ header img:hover {
 
 .add-todo:hover {
   cursor: pointer;
-}
-
-/* taken from https://css-tricks.com/inclusively-hidden/ */
-/* This will hide the native checkbox */
-input[type="checkbox"] {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 .input-text {
@@ -126,7 +115,7 @@ input[type="checkbox"] {
 main {
   border-radius: 5px;
   background-color: var(--rows-color);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: var(--shadow);
 }
 
 ul { 
@@ -142,6 +131,33 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* taken from https://css-tricks.com/inclusively-hidden/ */
+/* This will hide the native checkbox */
+/*
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+*/
+
+.checkbox {
+  display: inline-block; /* set to `inline-block` as `inline elements ignore `height` and `width` */
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border: 2px solid var(--very-dark-grayish-blue);
+  border-radius: 50px;
+}
+
+.checkbox:hover {
+  cursor: pointer;
 }
 
 ul li:hover .icon-cross {

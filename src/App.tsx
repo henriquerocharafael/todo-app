@@ -1,10 +1,9 @@
 import { ChangeEvent, useState } from "react";
+import { ListStatus } from "./components/ListStatus";
 import iconCross from "./assets/images/icon-cross.svg";
 import iconSun from "./assets/images/icon-sun.svg";
-import { Checkbox } from "./components/Checkbox/index";
-import { ListStatus } from "./components/ListStatus";
 
-interface TodoListProps {
+export interface TodoListProps {
   id: number;
   description: string;
   completed: boolean;
@@ -17,8 +16,16 @@ export function App() {
   const [todoItem, setTodoItem] = useState("");
   const [todoList, setTodoList] = useState<TodoListProps[]>([]);
 
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     setTodoItem(event.target.value);
+  }
+
+  function handleCheckboxChange(item: number) {
+    const updatedList = todoList.map((todo) => {
+      return todo.id === item ? { ...todo, completed: !todo.completed } : todo;
+    });
+
+    setTodoList(updatedList);
   }
 
   function addTodo() {
@@ -42,7 +49,7 @@ export function App() {
       <header>
         <div className="title-wrapper">
           <h1>todo</h1>
-          <img src={iconSun} />
+          <img src={iconSun} alt="Theme icon" />
         </div>
 
         <div className="input-wrapper">
@@ -50,7 +57,7 @@ export function App() {
           <input
             className="input-text"
             value={todoItem}
-            onChange={handleChange}
+            onChange={handleInputChange}
             placeholder="Create a new todo..."
           />
         </div>
@@ -62,19 +69,30 @@ export function App() {
             return (
               <li key={todo.id}>
                 <div>
-                  <Checkbox />
-                  {todo.description}
+                  <input
+                    className="checkbox"
+                    type="checkbox"
+                    onChange={() => handleCheckboxChange(todo.id)}
+                  />
+                  <div
+                    style={{
+                      textDecoration: todo.completed ? "line-through" : "",
+                    }}
+                  >
+                    {todo.description}
+                  </div>
                 </div>
                 <img
                   className="icon-cross"
                   src={iconCross}
                   onClick={() => deleteTodo(todo.id)}
+                  alt="Delete item icon"
                 />
               </li>
             );
           })}
         </ul>
-        <ListStatus itemsLeft={todoList.length} />
+        <ListStatus todoList={todoList} />
       </main>
       <footer>Drag and drop to reorder list</footer>
     </div>
