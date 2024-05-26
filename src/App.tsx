@@ -76,6 +76,10 @@ export function App() {
     setStatus("completed")
   }
 
+  function clearCompleted() {
+    setTodoList(todoList.filter(todo => todo.completed === false))
+  }
+
   return (
     <div className="wrapper">
       <header>
@@ -135,7 +139,7 @@ export function App() {
             <span onClick={showCompleted}>completed</span>
           </div>
           <div className="clear">
-            <span>clear completed</span>
+            <span onClick={clearCompleted}>clear completed</span>
           </div>
         </div>
       </main>
