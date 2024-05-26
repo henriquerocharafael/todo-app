@@ -1,9 +1,8 @@
-import { ChangeEvent, useState } from "react";
-import { ListStatus } from "./components/ListStatus";
+import { ChangeEvent, useEffect, useState } from "react";
 import iconCross from "./assets/images/icon-cross.svg";
 import iconSun from "./assets/images/icon-sun.svg";
 
-export interface TodoListProps {
+interface TodoListProps {
   id: number;
   description: string;
   completed: boolean;
@@ -15,6 +14,12 @@ export function App() {
 
   const [todoItem, setTodoItem] = useState("");
   const [todoList, setTodoList] = useState<TodoListProps[]>([]);
+  const [filteredList, setFilteredList] = useState<TodoListProps[]>([])
+  const [status, setStatus] = useState("all")
+
+  useEffect(() => {
+    handleFilter()
+  }, [todoList, status])
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     setTodoItem(event.target.value);
@@ -33,6 +38,7 @@ export function App() {
       ...todoList,
       { id: id, description: todoItem, completed: false },
     ]);
+
     setTodoItem("");
   }
 
@@ -42,6 +48,32 @@ export function App() {
     });
 
     setTodoList(updatedTodoList);
+  }
+
+  function handleFilter() {
+    switch (status) {
+      case "completed":
+        setFilteredList(todoList.filter(todo => todo.completed === true))
+        break;
+      case "active":
+        setFilteredList(todoList.filter(todo => todo.completed === false))
+        break;
+      default:
+        setFilteredList(todoList)
+        break;
+    }
+  }
+
+  function showAll() {
+    setStatus("all")
+  }
+
+  function showActive() {
+    setStatus("active")
+  }
+
+  function showCompleted() {
+    setStatus("completed")
   }
 
   return (
@@ -65,7 +97,7 @@ export function App() {
 
       <main>
         <ul>
-          {todoList.map((todo) => {
+          {filteredList.map((todo) => {
             return (
               <li key={todo.id}>
                 <div>
@@ -92,7 +124,20 @@ export function App() {
             );
           })}
         </ul>
-        <ListStatus todoList={todoList} />
+
+        <div className="list-status">
+          <div className="items">
+            <span>0</span> items left
+          </div>
+          <div className="status">
+            <span onClick={showAll}>all</span>
+            <span onClick={showActive}>active</span>
+            <span onClick={showCompleted}>completed</span>
+          </div>
+          <div className="clear">
+            <span>clear completed</span>
+          </div>
+        </div>
       </main>
       <footer>Drag and drop to reorder list</footer>
     </div>
