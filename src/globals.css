@@ -3,8 +3,14 @@
 
   --white: #fff;
   --bright-blue: hsl(220, 98%, 61%);
-  --check-background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-  --shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+  --check-background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  --shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px,
+    rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px,
+    rgba(0, 0, 0, 0.09) 0 -3px 5px;
 
   /* Neutral Colors */
   /* Light Theme */
@@ -48,167 +54,6 @@ body {
 .wrapper {
   min-width: 33.75rem;
   margin: 4.75rem auto auto;
-}
-
-header {
-  margin-top: 4.75rem;
-}
-
-.title-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  color: var(--white);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.313rem;
-}
-
-header img:hover {
-  cursor: pointer;
-}
-
-.input-wrapper {
-  width: 100%;
-  margin: 3.063rem 0 1.438rem 0;
-  padding: 1.3rem;
-  background-color: var(--rows-color);
-  border-radius: 5px;
-
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: var(--shadow);
-}
-
-.add-todo {
-  display: inline-block; /* set to `inline-block` as `inline elements ignore `height` and `width` */
-  width: 1.6rem;
-  height: 1.6rem;
-  background: transparent;
-  border: 2px solid var(--very-dark-grayish-blue);
-  border-radius: 50px;
-}
-
-.add-todo:hover {
-  cursor: pointer;
-}
-
-.input-text {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 1.3rem;
-  color: var(--text-inactive);
-  width: 100%;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  background-color: var(--rows-color);
-}
-
-.input-text:focus {
-  color: var(--text-active);
-}
-
-main {
-  border-radius: 5px;
-  background-color: var(--rows-color);
-  box-shadow: var(--shadow);
-}
-
-ul { 
-  list-style: none;
-}
-
-ul li {
-  font-size: 1.3rem;
-  color: var(--text-active);
-  padding: 1.3rem;
-  border-bottom: 1px solid var(--very-dark-grayish-blue);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* taken from https://css-tricks.com/inclusively-hidden/ */
-/* This will hide the native checkbox */
-/*
-input[type="checkbox"] {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-*/
-
-.checkbox {
-  display: inline-block; /* set to `inline-block` as `inline elements ignore `height` and `width` */
-  width: 1.5rem;
-  height: 1.5rem;
-  background: transparent;
-  border: 2px solid var(--very-dark-grayish-blue);
-  border-radius: 50px;
-}
-
-.checkbox:hover {
-  cursor: pointer;
-}
-
-ul li:hover .icon-cross {
-  display: block;
-}
-
-li div {
-  display: flex;
-  align-items: center;
-  gap: 1.3rem;
-}
-
-.icon-cross {
-  display: none;
-}
-
-.icon-cross:hover {
-  cursor: pointer;
-}
-
-.list-status {
-  font-size: 0.9rem; 
-  color: var(--text-inactive);
-  padding: 1.5rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.status {
-  font-weight: 700;
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.status span:hover {
-  cursor: pointer;
-  color: var(--text-active);
-}
-
-.clear span {
-  text-transform: capitalize;
-}
-
-.clear span:hover {
-  cursor: pointer;
-  color: var(--text-active);
 }
 
 footer {

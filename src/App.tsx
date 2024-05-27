@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import iconCross from "./assets/images/icon-cross.svg";
-import iconSun from "./assets/images/icon-sun.svg";
+import { Header } from "./components/Header";
+import { TodoList } from "./components/TodoList";
 
-interface TodoListProps {
+export interface TodoProps {
   id: number;
   description: string;
   completed: boolean;
@@ -13,13 +13,15 @@ export function App() {
   const id = Math.floor(Math.random() * 1000) + 1;
 
   const [todoItem, setTodoItem] = useState("");
-  const [todoList, setTodoList] = useState<TodoListProps[]>([]);
-  const [filteredList, setFilteredList] = useState<TodoListProps[]>([])
-  const [status, setStatus] = useState("all")
+  const [todoList, setTodoList] = useState<TodoProps[]>([]);
+  const [filteredList, setFilteredList] = useState<TodoProps[]>([]);
+  const [itemsLeft, setItemsLeft] = useState<TodoProps[]>([]);
+  const [status, setStatus] = useState("all");
 
   useEffect(() => {
-    handleFilter()
-  }, [todoList, status])
+    handleFilter();
+    setItemsLeft(todoList.filter((todo) => todo.completed === false));
+  }, [todoList, status]);
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     setTodoItem(event.target.value);
@@ -53,96 +55,33 @@ export function App() {
   function handleFilter() {
     switch (status) {
       case "completed":
-        setFilteredList(todoList.filter(todo => todo.completed === true))
+        setFilteredList(todoList.filter((todo) => todo.completed === true));
         break;
       case "active":
-        setFilteredList(todoList.filter(todo => todo.completed === false))
+        setFilteredList(todoList.filter((todo) => todo.completed === false));
         break;
       default:
-        setFilteredList(todoList)
+        setFilteredList(todoList);
         break;
     }
   }
 
-  function showAll() {
-    setStatus("all")
-  }
-
-  function showActive() {
-    setStatus("active")
-  }
-
-  function showCompleted() {
-    setStatus("completed")
-  }
-
-  function clearCompleted() {
-    setTodoList(todoList.filter(todo => todo.completed === false))
-  }
-
   return (
     <div className="wrapper">
-      <header>
-        <div className="title-wrapper">
-          <h1>todo</h1>
-          <img src={iconSun} alt="Theme icon" />
-        </div>
-
-        <div className="input-wrapper">
-          <button className="add-todo" onClick={addTodo}></button>
-          <input
-            className="input-text"
-            value={todoItem}
-            onChange={handleInputChange}
-            placeholder="Create a new todo..."
-          />
-        </div>
-      </header>
-
-      <main>
-        <ul>
-          {filteredList.map((todo) => {
-            return (
-              <li key={todo.id}>
-                <div>
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    onChange={() => handleCheckboxChange(todo.id)}
-                  />
-                  <div
-                    style={{
-                      textDecoration: todo.completed ? "line-through" : "",
-                    }}
-                  >
-                    {todo.description}
-                  </div>
-                </div>
-                <img
-                  className="icon-cross"
-                  src={iconCross}
-                  onClick={() => deleteTodo(todo.id)}
-                  alt="Delete item icon"
-                />
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="list-status">
-          <div className="items">
-            <span>0</span> items left
-          </div>
-          <div className="status">
-            <span onClick={showAll}>all</span>
-            <span onClick={showActive}>active</span>
-            <span onClick={showCompleted}>completed</span>
-          </div>
-          <div className="clear">
-            <span onClick={clearCompleted}>clear completed</span>
-          </div>
-        </div>
-      </main>
+      <Header
+        addTodo={addTodo}
+        todoItem={todoItem}
+        handleInputChange={handleInputChange}
+      />
+      <TodoList
+        filteredList={filteredList}
+        handleCheckboxChange={handleCheckboxChange}
+        deleteTodo={deleteTodo}
+        itemsLeft={itemsLeft}
+        setStatus={setStatus}
+        todoList={todoList}
+        setTodoList={setTodoList}
+      />
       <footer>Drag and drop to reorder list</footer>
     </div>
   );

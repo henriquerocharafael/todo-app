@@ -1,0 +1,98 @@
+main {
+  border-radius: 5px;
+  background-color: var(--rows-color);
+  box-shadow: var(--shadow);
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  font-size: 1.3rem;
+  color: var(--text-active);
+  padding: 1.3rem;
+  border-bottom: 1px solid var(--very-dark-grayish-blue);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* taken from https://css-tricks.com/inclusively-hidden/ */
+/* This will hide the native checkbox */
+/*
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+*/
+
+.checkbox {
+  display: inline-block; /* set to `inline-block` as `inline elements ignore `height` and `width` */
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border: 2px solid var(--very-dark-grayish-blue);
+  border-radius: 50px;
+}
+
+.checkbox:hover {
+  cursor: pointer;
+}
+
+ul li:hover .iconCross {
+  display: block;
+}
+
+li div {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.iconCross {
+  display: none;
+}
+
+.iconCross:hover {
+  cursor: pointer;
+}
+
+.listStatus {
+  font-size: 0.9rem;
+  color: var(--text-inactive);
+  padding: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.status {
+  font-weight: 700;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status span:hover {
+  cursor: pointer;
+  color: var(--text-active);
+}
+
+.clear span {
+  text-transform: capitalize;
+}
+
+.clear span:hover {
+  cursor: pointer;
+  color: var(--text-active);
+}

@@ -1,0 +1,61 @@
+header {
+  margin-top: 4.75rem;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.313rem;
+}
+
+header img:hover {
+  cursor: pointer;
+}
+
+.inputWrapper {
+  width: 100%;
+  margin: 3.063rem 0 1.438rem 0;
+  padding: 1.3rem;
+  background-color: var(--rows-color);
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.addTodo {
+  display: inline-block; /* set to `inline-block` as `inline elements ignore `height` and `width` */
+  width: 1.6rem;
+  height: 1.6rem;
+  background: transparent;
+  border: 2px solid var(--very-dark-grayish-blue);
+  border-radius: 50px;
+}
+
+.addTodo:hover {
+  cursor: pointer;
+}
+
+.inputText {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.3rem;
+  color: var(--text-inactive);
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--rows-color);
+}
+
+.inputText:focus {
+  color: var(--text-active);
+}
