@@ -19,41 +19,51 @@ ul li {
   justify-content: space-between;
 }
 
-/* taken from https://css-tricks.com/inclusively-hidden/ */
-/* This will hide the native checkbox */
-/*
-input[type="checkbox"] {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-*/
-
-.checkbox {
-  display: inline-block; /* set to `inline-block` as `inline elements ignore `height` and `width` */
-  width: 1.5rem;
-  height: 1.5rem;
-  background: transparent;
-  border: 2px solid var(--very-dark-grayish-blue);
+.checkboxWrapper input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1.6rem;
+  height: 1.6rem;
   border-radius: 50px;
+  border: 2px solid var(--very-dark-grayish-blue);
+  outline: none;
+  cursor: pointer;
 }
 
-.checkbox:hover {
-  cursor: pointer;
+.checkboxWrapper input:checked {
+  border: none;
+  background-color: #007a7e;
+  position: relative;
+}
+
+.checkboxWrapper input:hover {
+  border-color: #007a7e;
+}
+
+input:checked::before {
+  content: "\2713";
+  font-size: 1.1rem;
+  color: #fff;
+  position: absolute;
+  right: 5px;
+  top: 3px;
 }
 
 ul li:hover .iconCross {
   display: block;
 }
 
-li div {
+li .listItem {
   display: flex;
   align-items: center;
   gap: 1.3rem;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.4;
 }
 
 .iconCross {
