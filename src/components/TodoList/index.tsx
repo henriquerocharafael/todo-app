@@ -8,6 +8,7 @@ interface TodoListProps {
   filteredList: TodoProps[];
   itemsLeft: TodoProps[];
   todoList: TodoProps[];
+  status: string;
   handleCheckboxChange(item: number): void;
   deleteTodo(item: number): void;
   setStatus: React.Dispatch<React.SetStateAction<string>>;
@@ -22,6 +23,7 @@ export function TodoList({
   setStatus,
   setTodoList,
   todoList,
+  status,
 }: TodoListProps) {
   return (
     <main>
@@ -51,6 +53,7 @@ export function TodoList({
         itemsLeft={itemsLeft}
         todoList={todoList}
         setTodoList={setTodoList}
+        status={status}
       />
     </main>
   );

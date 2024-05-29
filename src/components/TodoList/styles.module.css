@@ -93,6 +93,10 @@ li .listItem {
   gap: 1rem;
 }
 
+.active {
+  color: var(--bright-blue);
+}
+
 .status span:hover {
   cursor: pointer;
   color: var(--text-active);

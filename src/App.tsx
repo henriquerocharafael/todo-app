@@ -81,6 +81,7 @@ export function App() {
         setStatus={setStatus}
         todoList={todoList}
         setTodoList={setTodoList}
+        status={status}
       />
       <footer>Drag and drop to reorder list</footer>
     </div>
