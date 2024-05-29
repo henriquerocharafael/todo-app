@@ -9,6 +9,8 @@ interface HeaderProps {
 }
 
 export function Header({ addTodo, todoItem, handleInputChange }: HeaderProps) {
+  const disabled = todoItem.length <= 0;
+
   return (
     <header>
       <div className={styles.titleWrapper}>
@@ -17,7 +19,12 @@ export function Header({ addTodo, todoItem, handleInputChange }: HeaderProps) {
       </div>
 
       <div className={styles.inputWrapper}>
-        <button className={styles.addTodo} onClick={addTodo}></button>
+        <button
+          // className={styles.addTodo}
+          className={`${styles.addTodo} ${disabled ? styles.disabled : ""}`}
+          disabled={disabled ? true : false}
+          onClick={addTodo}
+        ></button>
         <input
           className={styles.inputText}
           value={todoItem}
