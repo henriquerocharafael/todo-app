@@ -34,21 +34,20 @@ ul li {
 
 .checkboxWrapper input:checked {
   border: none;
-  background-color: #007a7e;
+  background: rgb(169, 123, 178);
+  background: var(--color-gradient);
   position: relative;
 }
 
 .checkboxWrapper input:hover {
-  border-color: #007a7e;
+  border-color: rgb(169, 123, 178);
 }
 
 input:checked::before {
-  content: "\2713";
-  font-size: 1.1rem;
-  color: #fff;
+  content: url("../../assets/images/icon-check.svg");
   position: absolute;
-  right: 5px;
-  top: 3px;
+  right: 7px;
+  top: 6px;
 }
 
 ul li:hover .iconCross {

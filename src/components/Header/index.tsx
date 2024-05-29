@@ -20,7 +20,6 @@ export function Header({ addTodo, todoItem, handleInputChange }: HeaderProps) {
 
       <div className={styles.inputWrapper}>
         <button
-          // className={styles.addTodo}
           className={`${styles.addTodo} ${disabled ? styles.disabled : ""}`}
           disabled={disabled ? true : false}
           onClick={addTodo}

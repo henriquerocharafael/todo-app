@@ -3,7 +3,13 @@
 
   --white: #fff;
   --bright-blue: hsl(220, 98%, 61%);
-  --color-gradient: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --color-gradient: linear-gradient(
+    90deg,
+    rgba(169, 123, 178, 1) 0%,
+    rgba(117, 93, 159, 1) 0%,
+    rgba(198, 203, 209, 1) 100%,
+    rgba(140, 86, 149, 0.9192051820728291) 100%
+  );
   --shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px,
     rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px,
     rgba(0, 0, 0, 0.09) 0 -3px 5px;
