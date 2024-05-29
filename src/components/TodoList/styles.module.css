@@ -1,4 +1,5 @@
-main {
+main .desktop,
+main .statusMobile {
   border-radius: 5px;
   background-color: var(--rows-color);
   box-shadow: var(--shadow);
@@ -19,37 +20,6 @@ ul li {
   justify-content: space-between;
 }
 
-.checkboxWrapper input[type="checkbox"] {
-  /* removing default appearance */
-  -webkit-appearance: none;
-  appearance: none;
-  /* creating a custom design */
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50px;
-  border: 2px solid var(--very-dark-grayish-blue);
-  outline: none;
-  cursor: pointer;
-}
-
-.checkboxWrapper input:checked {
-  border: none;
-  background: rgb(169, 123, 178);
-  background: var(--color-gradient);
-  position: relative;
-}
-
-.checkboxWrapper input:hover {
-  border-color: rgb(169, 123, 178);
-}
-
-input:checked::before {
-  content: url("../../assets/images/icon-check.svg");
-  position: absolute;
-  right: 7px;
-  top: 6px;
-}
-
 ul li:hover .iconCross {
   display: block;
 }
@@ -67,6 +37,7 @@ li .listItem {
 
 .iconCross {
   display: none;
+  margin-left: 0.7rem;
 }
 
 .iconCross:hover {
@@ -92,6 +63,10 @@ li .listItem {
   gap: 1rem;
 }
 
+.statusMobile {
+  display: none;
+}
+
 .active {
   color: var(--bright-blue);
 }
@@ -108,4 +83,32 @@ li .listItem {
 .clear span:hover {
   cursor: pointer;
   color: var(--text-active);
+}
+
+@media (max-width: 600px) {
+  ul li .iconCross {
+    display: block;
+  }
+
+  li .listItem {
+    gap: 0.7rem;
+  }
+
+  .status {
+    display: none;
+  }
+
+  .statusMobile {
+    margin-top: 1.438rem;
+    padding: 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-inactive);
+    text-transform: capitalize;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
 }

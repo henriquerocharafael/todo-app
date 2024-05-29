@@ -1,0 +1,30 @@
+.checkboxWrapper input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50px;
+  border: 2px solid var(--very-dark-grayish-blue);
+  outline: none;
+  cursor: pointer;
+}
+
+.checkboxWrapper input:checked {
+  border: none;
+  background: rgb(169, 123, 178);
+  background: var(--color-gradient);
+  position: relative;
+}
+
+.checkboxWrapper input:hover {
+  border-color: rgb(169, 123, 178);
+}
+
+input:checked::before {
+  content: url("../../assets/images/icon-check.svg");
+  position: absolute;
+  right: 7px;
+  top: 6px;
+}

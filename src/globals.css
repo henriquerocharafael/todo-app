@@ -46,6 +46,7 @@ body {
   font-family: "Josefin Sans", sans-serif;
   background: var(--background-color);
   background-image: url("./assets/images/bg-desktop-dark.jpg");
+  background-size: 100% 300px;
   background-repeat: no-repeat;
   background-position: top;
 
@@ -63,4 +64,15 @@ footer {
   color: var(--text-inactive);
   text-align: center;
   padding: 3rem 0;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-image: url("./assets/images/bg-mobile-dark.jpg");
+    background-size: 100% 200px;
+  }
+
+  .wrapper {
+    min-width: 23.438rem;
+  }
 }
