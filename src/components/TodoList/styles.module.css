@@ -71,7 +71,8 @@ li .listItem {
   color: var(--bright-blue);
 }
 
-.status span:hover {
+.status span:hover,
+.statusMobile span:hover {
   cursor: pointer;
   color: var(--text-active);
 }

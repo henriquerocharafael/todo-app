@@ -35,7 +35,11 @@ export function TodoList({
               <li key={todo.id}>
                 <div className={styles.listItem}>
                   <Checkbox onChange={() => handleCheckboxChange(todo.id)} />
-                  <div className={todo.completed ? styles.completed : ""}>
+                  <div
+                    className={`${styles.description} ${
+                      todo.completed ? styles.completed : ""
+                    }`}
+                  >
                     {todo.description}
                   </div>
                 </div>
