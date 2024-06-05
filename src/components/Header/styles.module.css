@@ -37,7 +37,7 @@ header img:hover {
   width: 1.6rem;
   height: 1.6rem;
   background: transparent;
-  border: 2px solid var(--very-dark-grayish-blue);
+  border: 2px solid var(--border-color);
   border-radius: 50px;
   cursor: pointer;
 }

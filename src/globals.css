@@ -1,8 +1,13 @@
 :root {
-  /* Primary Colors */
-
-  --white: #fff;
+  --white: #ffffff;
+  --text-active: #9799b0;
+  --text-inactive: #686a7f;
   --bright-blue: hsl(220, 98%, 61%);
+  --background-color: #181824;
+  --rows-color: #25273c;
+  --border-color: hsl(235, 19%, 35%);
+  --bg-image: url("./assets/images/bg-desktop-dark.jpg");
+
   --color-gradient: linear-gradient(
     90deg,
     rgba(169, 123, 178, 1) 0%,
@@ -10,25 +15,17 @@
     rgba(198, 203, 209, 1) 100%,
     rgba(140, 86, 149, 0.9192051820728291) 100%
   );
+
   --shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px,
     rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px,
     rgba(0, 0, 0, 0.09) 0 -3px 5px;
+}
 
-  /* Neutral Colors */
-  /* Light Theme */
-
-  --very-light-gray: hsl(0, 0%, 98%);
-  --very-light-grayish-blue: hsl(236, 33%, 92%);
-  --light-grayish-blue: hsl(233, 11%, 84%);
-  --dark-grayish-blue: hsl(236, 9%, 61%);
-  --very-dark-grayish-blue: hsl(235, 19%, 35%);
-
-  /* Dark Theme */
-
-  --background-color: #181824;
-  --rows-color: #25273c;
-  --text-active: #9799b0;
-  --text-inactive: #686a7f;
+.light-mode:root {
+  --background-color: #fafafa;
+  --rows-color: #fff;
+  --border-color: #eeedf1;
+  --bg-image: url("./assets/images/bg-desktop-light.jpg");
 }
 
 * {
@@ -46,7 +43,7 @@ body {
 
   font-family: "Josefin Sans", sans-serif;
   background: var(--background-color);
-  background-image: url("./assets/images/bg-desktop-dark.jpg");
+  background-image: var(--bg-image);
   background-size: 100% 300px;
   background-repeat: no-repeat;
   background-position: top;
@@ -67,9 +64,9 @@ footer {
   padding: 3rem 0;
 }
 
-@media (max-width: 600px) {
+@media screen and(max-width: 600px) {
   body {
-    background-image: url("./assets/images/bg-mobile-dark.jpg");
+    background-image: var(--bg-image);
     background-size: 100% 200px;
   }
 
