@@ -25,7 +25,7 @@ Your users should be able to:
 [x] - Delete todos from the list
 [x] - Filter by all/active/complete todos
 [x] - Clear all completed todos
-[ ] - Toggle light and dark mode
+[x] - Toggle light and dark mode
 [ ] - **Bonus**: Drag and drop to reorder items on the list
 
 Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
