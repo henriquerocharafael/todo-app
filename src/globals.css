@@ -44,8 +44,9 @@ body {
   font-family: "Josefin Sans", sans-serif;
   background: var(--background-color);
   background-image: var(--bg-image);
-  background-size: 100% 300px;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover 300px;
   background-position: top;
 
   display: flex;
@@ -53,7 +54,6 @@ body {
 }
 
 .wrapper {
-  min-width: 33.75rem;
   margin: 4.75rem auto auto;
 }
 
@@ -64,13 +64,21 @@ footer {
   padding: 3rem 0;
 }
 
-@media screen and(max-width: 600px) {
+@media (min-width: 601px) {
+  .wrapper {
+    width: 33.75rem;
+    margin: 4.75rem auto;
+  }
+}
+
+@media (max-width: 600px) {
   body {
     background-image: var(--bg-image);
-    background-size: 100% 200px;
+    background-size: 100% cover;
   }
 
   .wrapper {
-    min-width: 21rem;
+    min-width: 22.5rem;
+    margin: 4.75rem 1rem;
   }
 }

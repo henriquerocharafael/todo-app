@@ -30,9 +30,10 @@ li .listItem {
   gap: 1.3rem;
 }
 
-/* li .listItem .description {
-  word-wrap: break-word;
-} */
+/* wraps text to fit container width */
+li .listItem .description {
+  overflow-wrap: anywhere;
+}
 
 .completed {
   text-decoration: line-through;
