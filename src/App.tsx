@@ -67,23 +67,25 @@ export function App() {
   }
 
   return (
-    <div className="wrapper">
-      <Header
-        addTodo={addTodo}
-        todoItem={todoItem}
-        handleInputChange={handleInputChange}
-      />
-      <TodoList
-        filteredList={filteredList}
-        handleCheckboxChange={handleCheckboxChange}
-        deleteTodo={deleteTodo}
-        itemsLeft={itemsLeft}
-        setStatus={setStatus}
-        todoList={todoList}
-        setTodoList={setTodoList}
-        status={status}
-      />
-      <footer>Drag and drop to reorder list</footer>
-    </div>
+    <>
+      <div className="wrapper">
+        <Header
+          addTodo={addTodo}
+          todoItem={todoItem}
+          handleInputChange={handleInputChange}
+        />
+        <TodoList
+          filteredList={filteredList}
+          handleCheckboxChange={handleCheckboxChange}
+          deleteTodo={deleteTodo}
+          itemsLeft={itemsLeft}
+          setStatus={setStatus}
+          todoList={todoList}
+          setTodoList={setTodoList}
+          status={status}
+        />
+        <footer>Drag and drop to reorder list</footer>
+      </div>
+    </>
   );
 }

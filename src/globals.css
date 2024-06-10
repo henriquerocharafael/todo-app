@@ -7,6 +7,7 @@
   --rows-color: #25273c;
   --border-color: hsl(235, 19%, 35%);
   --bg-image: url("./assets/images/bg-desktop-dark.jpg");
+  --bg-image-mobile: url("./assets/images/bg-mobile-dark.jpg");
 
   --color-gradient: linear-gradient(
     90deg,
@@ -26,6 +27,7 @@
   --rows-color: #fff;
   --border-color: #eeedf1;
   --bg-image: url("./assets/images/bg-desktop-light.jpg");
+  --bg-image-mobile: url("./assets/images/bg-mobile-light.jpg");
 }
 
 * {
@@ -53,6 +55,15 @@ body {
   justify-content: center;
 }
 
+.bg-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+}
+
 .wrapper {
   margin: 4.75rem auto auto;
 }
@@ -67,18 +78,19 @@ footer {
 @media (min-width: 601px) {
   .wrapper {
     width: 33.75rem;
-    margin: 4.75rem auto;
+    margin: 4.75rem 0;
   }
 }
 
 @media (max-width: 600px) {
   body {
-    background-image: var(--bg-image);
-    background-size: 100% cover;
+    background-image: var(--bg-image-mobile);
+    background-size: 100% 200px;
+    background-position: 0 top;
   }
 
   .wrapper {
-    min-width: 22.5rem;
+    width: 22.5rem;
     margin: 4.75rem 1rem;
   }
 }
